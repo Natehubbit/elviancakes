@@ -53,9 +53,12 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
   onInputChange,
   field,
 }) => {
-  const [active, setActive] = useState(options[0] || '');
-  const inputRef = useRef<TextInput>(null);
+  const [active, setActive] = useState<string>('other');
+  const inputRef = useRef<TextInput>();
   const isOther = active === 'other';
+  useEffect(() => {
+    console.log('active:: ', active);
+  }, [active]);
   useEffect(() => {
     isOther
       && inputRef.current
@@ -66,12 +69,13 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
     const fieldVal = opt === 'other'
       ? ''
       : opt;
-    setActive(opt);
+    setActive(option);
     onSelect
       && onSelect(field, fieldVal, true);
   };
   const onTextChange = (text:string) => {
-    onInputChange(text.toLowerCase());
+    onInputChange
+      && onInputChange(text.toLowerCase());
   };
   return (
     <>
@@ -81,7 +85,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
         ]}
       >
         {options.map((option) => {
-          const isActive = option.toLowerCase() === active;
+          const isActive = option.toLowerCase() === active.toLowerCase();
           return (
             <Button
               style={[

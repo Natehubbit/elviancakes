@@ -26,11 +26,11 @@ export type OrderFormsData = {
 }
 
 export type FormUIData = {
-  key?: string;
-  placeholder?: string;
+  key: string;
+  placeholder: string;
   label?: string;
   type?: InputTypes;
-  options?: null|object;
+  options: object;
 }
 
 export type InputTypes = 'slider'

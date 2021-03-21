@@ -21,7 +21,7 @@ import Textarea from '../Textarea';
 
 interface FormCardProps {
   title: string;
-  formData: object;
+  formData: object|null;
   formInfo: FormUIData[];
   leaveToUs?: boolean;
   // eslint-disable-next-line no-unused-vars
@@ -34,6 +34,12 @@ const FormCard:React.FC<FormCardProps> = ({
   leaveToUs,
   formInfo,
 }) => {
+  const onLeaveToChef = () => {
+
+  };
+  const onNext = () => {
+
+  };
   if (!formData) return null;
   return (
     <Formik
@@ -51,7 +57,6 @@ const FormCard:React.FC<FormCardProps> = ({
           <View
             style={[styles.head]}
           >
-            {console.log(values)}
             <DripMiniIcon
               preserveAspectRatio="xMinYMin clear"
               width="100%"
@@ -150,14 +155,14 @@ const FormCard:React.FC<FormCardProps> = ({
           >
             {leaveToUs && (
             <ButtonText
-              onPress={null}
+              onPress={onLeaveToChef}
               label="Leave to chef"
               style={[styles.leave]}
             />
             )}
             <Button
               label="Next"
-              onPress={null}
+              onPress={onNext}
             />
           </View>
         </View>

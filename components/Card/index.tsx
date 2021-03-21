@@ -5,6 +5,7 @@ import {
 import Button from '../Button';
 import ButtonText from '../ButtonText';
 import CartIcon from '../../assets/cart.svg';
+import { COLORS } from '../../common/theme';
 
 const {
   height,
@@ -12,6 +13,12 @@ const {
 } = Dimensions.get('window');
 
 const Card = () => {
+  const onAddToCart = () => {
+
+  };
+  const onOrder = () => {
+
+  };
   return (
     <View style={[styles.container]}>
       <Image
@@ -26,10 +33,10 @@ const Card = () => {
           <Button
             icon={CartIcon}
             label="Add"
-            onPress={null}
+            onPress={onAddToCart}
           />
           <ButtonText
-            onPress={null}
+            onPress={onOrder}
             label="Order"
           />
         </View>
@@ -45,6 +52,8 @@ const styles = StyleSheet.create({
     // height: height * 0.2,
     width: width * 0.44,
     marginBottom: 20,
+    backgroundColor: COLORS.white,
+    elevation: 2,
   },
   img: {
     height: height * 0.2,

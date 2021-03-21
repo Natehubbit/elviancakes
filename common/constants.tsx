@@ -12,7 +12,7 @@ import UserIcon from '../assets/user.svg';
 import SettingsIcon from '../assets/settings.svg';
 import { OrderFormsData } from '../types';
 
-export const CATEGORY_BUTTONS: {Icon:any, label:string}[] = [
+export const CATEGORY_BUTTONS: { Icon: any; label: string }[] = [
   {
     Icon: AllIcon,
     label: 'All',
@@ -110,17 +110,14 @@ export const ORDER_FORM: OrderFormsData = {
       placeholder: 'What shape should your cake assume?',
       label: 'Shape',
       type: 'shapeBtns',
-      options: [
-        'square',
-        'round',
-      ],
+      options: ['square', 'round'],
     },
     {
       key: 'inscription',
       placeholder: 'What should we write on the cake?',
       label: 'Inscription',
       type: 'text',
-      options: null,
+      options: [],
     },
     // {
     //   key: 'layers',
@@ -134,16 +131,16 @@ export const ORDER_FORM: OrderFormsData = {
       placeholder: 'Tell us how much you can afford.',
       label: 'Budget Range',
       type: 'slider',
-      options: null,
+      options: [],
     },
   ],
   Media: [
     {
       key: 'imageUrl',
-      placeholder: null,
+      placeholder: '',
       label: 'Upload an Image Description',
       type: 'upload',
-      options: null,
+      options: [],
     },
   ],
   Extra: [
@@ -152,16 +149,16 @@ export const ORDER_FORM: OrderFormsData = {
       placeholder: 'Any thing else you want to tell us?',
       label: 'Note',
       type: 'textarea',
-      options: null,
+      options: [],
     },
   ],
   Delivery: [
     {
       key: 'delivery',
-      placeholder: null,
+      placeholder: '',
       label: 'Delivery',
       type: 'upload',
-      options: null,
+      options: [],
     },
   ],
 };

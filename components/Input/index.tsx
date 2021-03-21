@@ -6,7 +6,7 @@ import { COLORS } from '../../common/theme';
 import { OrderForm } from '../../types';
 
 interface InputProps extends TextInputProps {
-  innerRef?: React.MutableRefObject<TextInput>;
+  innerRef?: React.MutableRefObject<TextInput | undefined>;
   // eslint-disable-next-line no-unused-vars
   onUpdate?:(key: keyof OrderForm, value: any) => void;
   keyVal?: keyof OrderForm;
@@ -36,7 +36,7 @@ const Input: React.FC<InputProps> = ({
         styles.container,
         active && styles.active,
       ]}
-      ref={innerRef}
+      ref={innerRef as any}
       {...props}
     />
   );

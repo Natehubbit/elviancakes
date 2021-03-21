@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     // marginRight: 5,
+    color: COLORS.white,
     zIndex: 10,
   },
 });

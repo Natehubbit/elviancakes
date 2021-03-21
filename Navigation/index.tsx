@@ -13,7 +13,7 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="CustomOrder"
+        // initialRouteName="CustomOrder"
         headerMode="none"
       >
         <Stack.Screen

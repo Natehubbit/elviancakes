@@ -1,6 +1,7 @@
 import { StackHeaderProps } from '@react-navigation/stack';
 import React, { useEffect, useState } from 'react';
 import {
+  Dimensions,
   ImageBackground, ScrollView, StyleSheet, View,
 } from 'react-native';
 import uuid from 'react-native-uuid';
@@ -11,6 +12,7 @@ import { OrderForm } from '../../types';
 
 const background = require('../../assets/background2.png');
 
+const { height } = Dimensions.get('window');
 interface CustomOrderProps extends StackHeaderProps {
 
 }
@@ -24,7 +26,7 @@ const CustomOrder: React.FC<
     useEffect(() => {
     }, [form]);
     const onUpdateForm = (
-      key:keyof OrderForm,
+      key: keyof OrderForm,
       value: any,
     ) => {
       setForm((v) => ({
@@ -33,10 +35,11 @@ const CustomOrder: React.FC<
       }));
     };
     const initForm = () => {
-      const data = {};
+      // TODO: Create a type for form data
+      const data: any = {};
       Object
         .keys(ORDER_FORM)
-        .forEach((k:keyof typeof ORDER_FORM) => {
+        .forEach((k: keyof typeof ORDER_FORM) => {
           const vals = ORDER_FORM[k];
           vals.forEach((r) => {
             const v = r.key === 'range'
@@ -64,7 +67,7 @@ const CustomOrder: React.FC<
           <Navbar />
           {Object
             .keys(ORDER_FORM)
-            .map((key) => {
+            .map((key: keyof typeof ORDER_FORM) => {
               const hideLeaveToUs = key
                 .toLowerCase() === 'details';
               return (
@@ -87,7 +90,9 @@ export default CustomOrder;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
+    height,
+    paddingBottom: 50,
   },
   background: {
   },

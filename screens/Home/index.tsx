@@ -2,36 +2,35 @@ import React, { useRef, useState } from 'react';
 import {
   Dimensions,
   GestureResponderEvent,
-  ImageBackground, ScrollView, StyleSheet, Text, View,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import CategoryButton from '../../components/CategoryButton';
 import { CATEGORY_BUTTONS } from '../../common/constants';
 import { COLORS } from '../../common/theme';
-import SpecialsCard from '../../components/SpecialsCard';
+// import SpecialsCard from '../../components/SpecialsCard';
 import Card from '../../components/Card';
 import { Category } from '../../types';
 
-const {
-  height,
-  width,
-} = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 
 const back = require('../../assets/background2.png');
 
 const Home = () => {
-  const { navigate } = useNavigation();
+  // const { navigate } = useNavigation();
   const [active, setActive] = useState<Category>('all');
   const scrollRef = useRef<ScrollView>(null);
-  const onSpecialPress = () => {
-    navigate('Special');
-  };
-  const onCatSelect = (e:GestureResponderEvent, val:Category) => {
+  // const onSpecialPress = () => {
+  //   navigate('Special');
+  // };
+  const onCatSelect = (e: GestureResponderEvent, val: Category) => {
     setActive(val);
     const {
-      nativeEvent: {
-        pageX,
-      },
+      nativeEvent: { pageX },
     } = e;
     if (scrollRef.current) {
       scrollRef.current.scrollTo({
@@ -41,10 +40,7 @@ const Home = () => {
   };
   return (
     <View>
-      <ImageBackground
-        source={back}
-        style={[styles.back]}
-      />
+      <ImageBackground source={back} style={[styles.back]} />
       <ScrollView
         contentContainerStyle={[styles.categories]}
         horizontal
@@ -60,19 +56,14 @@ const Home = () => {
             icon={Icon}
             label={label}
             active={label.toLowerCase() === active}
-            onPress={(e:GestureResponderEvent) => onCatSelect(e, label
-              .toLowerCase() as Category)}
+            onPress={(e: GestureResponderEvent) => onCatSelect(e, label.toLowerCase() as Category)}
           />
         ))}
       </ScrollView>
-      <ScrollView
-        contentContainerStyle={[styles.scroll]}
-      >
+      <ScrollView contentContainerStyle={[styles.scroll]}>
         <View style={[styles.card]}>
-          <View style={[styles.cardHead]}>
-            <Text>
-              Specials
-            </Text>
+          {/* <View style={[styles.cardHead]}>
+            <Text>Specials</Text>
           </View>
           <View style={[styles.specialsContainer]}>
             <ScrollView
@@ -82,24 +73,18 @@ const Home = () => {
               snapToInterval={width * 0.7}
               style={[styles.specials]}
             >
-              <SpecialsCard
-                onPress={onSpecialPress}
-              />
+              <SpecialsCard onPress={onSpecialPress} />
               <SpecialsCard />
               <SpecialsCard />
               <SpecialsCard />
               <SpecialsCard />
               <SpecialsCard />
             </ScrollView>
-          </View>
-          <View style={[styles.cardHead]}>
-            <Text>
-              More
-            </Text>
-          </View>
-          <ScrollView
-            contentContainerStyle={[styles.more]}
-          >
+          </View> */}
+          {/* <View style={[styles.cardHead]}>
+            <Text>More</Text>
+          </View> */}
+          <ScrollView contentContainerStyle={[styles.more]}>
             <Card />
             <Card />
             <Card />
@@ -116,9 +101,7 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  container: {
-
-  },
+  container: {},
   back: {
     height,
     width,
@@ -131,8 +114,9 @@ const styles = StyleSheet.create({
   card: {
     marginHorizontal: 10,
     borderRadius: 5,
-    backgroundColor: COLORS.white,
+    // backgroundColor: COLORS.white,
     marginBottom: 50,
+    paddingBottom: 20,
   },
   scroll: {
     paddingHorizontal: 2,
@@ -142,9 +126,7 @@ const styles = StyleSheet.create({
     borderBottomColor: COLORS.border,
     borderBottomWidth: 1,
   },
-  specials: {
-
-  },
+  specials: {},
   specialsContainer: {
     borderBottomColor: COLORS.border,
     borderBottomWidth: 1,
